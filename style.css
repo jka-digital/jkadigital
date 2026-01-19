@@ -1,0 +1,254 @@
+/* =========================================
+   1. VARIABLES & RESET
+   (Change colors here to update the whole site)
+   ========================================= */
+:root {
+    /* YOUR PALETTE */
+    --bg-cream: #FFF5E9;       /* Main Background */
+    --dark-green: #102E0D;     /* Primary Text / Dark Accents */
+    --sage-green: #74844D;     /* Secondary Accents */
+    --brown: #85674D;          /* Buttons / Highlights */
+    --dark-brown: #2E0D14;     /* Darkest Text */
+    
+    /* FONTS */
+    --font-heading: 'Maharlika', serif;
+    --font-body: 'Jost', sans-serif; /* Close match to Futura */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-cream);
+    font-family: var(--font-body);
+    color: var(--dark-brown);
+    line-height: 1.6;
+}
+
+/* =========================================
+   2. NAVIGATION
+   ========================================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5%;
+    background-color: var(--bg-cream);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--dark-green);
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 3rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark-green);
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--brown);
+}
+
+/* Mobile Menu Icon (Hidden on desktop) */
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--dark-green);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* =========================================
+   3. HERO SECTION
+   ========================================= */
+.hero {
+    height: 80vh; /* 80% of screen height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    color: var(--dark-green);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--sage-green);
+}
+
+/* Button Styles */
+.btn-primary {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--dark-green);
+    color: var(--bg-cream);
+    text-decoration: none;
+    border-radius: 30px; /* Rounded corners */
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--sage-green);
+}
+
+/* =========================================
+   4. PRODUCTS GRID
+   ========================================= */
+.products-section {
+    padding: 4rem 10%;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--dark-green);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 2rem;
+}
+
+.product-card {
+    background: white;
+    border-radius: 15px; /* Soft edges */
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px); /* Lifts up slightly on hover */
+}
+
+.product-image {
+    height: 300px;
+    background-color: #EAEAEA; /* Placeholder grey */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.product-info h3 {
+    font-family: var(--font-heading);
+    margin-bottom: 0.5rem;
+    color: var(--dark-green);
+}
+
+.price {
+    display: block;
+    font-size: 1.2rem;
+    color: var(--brown);
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+.btn-secondary {
+    padding: 10px 25px;
+    background-color: transparent;
+    border: 1px solid var(--dark-green);
+    color: var(--dark-green);
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--dark-green);
+    color: var(--bg-cream);
+}
+
+/* =========================================
+   5. FOOTER
+   ========================================= */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--dark-green);
+    color: var(--bg-cream);
+    margin-top: 4rem;
+}
+
+/* =========================================
+   6. RESPONSIVE (Mobile)
+   ========================================= */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        background-color: var(--bg-cream);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+        border-left: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .nav-links li {
+        margin: 2rem 0; /* Space out links vertically */
+    }
+
+    .burger {
+        display: block; /* Show burger icon */
+    }
+
+    .nav-active {
+        transform: translateX(0%);
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
